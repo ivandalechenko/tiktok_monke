@@ -147,7 +147,16 @@ export default observer(() => {
                         transition: `opacity ${showPlayStatus ? 50 : 500}ms cubic-bezier(.52,.01,1,.51)`,
                         opacity: showPlayStatus ? 1 : 0
                     }}>
-                        <img src={`/img/${paused ? 'pause' : "play"}.svg`} alt="" />
+                        <div className="free_img" style={{
+                            opacity: paused ? 1 : 0
+                        }}>
+                            <img src={`/img/pause.svg`} alt="" />
+                        </div>
+                        <div className="free_img" style={{
+                            opacity: !paused ? 1 : 0
+                        }}>
+                            <img src={`/img/play.svg`} alt="" />
+                        </div>
                     </div>
                 </div>
                 <div className='free_img Video_status'>
@@ -198,24 +207,32 @@ export default observer(() => {
                         <div className='free_img Video_actions'>
                             <div className='Video_actions_inner'>
                                 <div className='Video_actions_inner_element Video_actions_inner_element_actions'>
-                                    <div className='Video_actions_inner_element_actions_prev' onClick={() => {
+                                    <div className='Video_actions_inner_element_actions_prev' onClick={(e) => {
+                                        e.stopPropagation()
+
                                         tabStore.prevVid()
                                     }}>
                                         <img src="/img/back.svg" alt="" />
                                     </div>
-                                    <div className='Video_actions_inner_element_actions_next' onClick={() => {
+                                    <div className='Video_actions_inner_element_actions_next' onClick={(e) => {
+                                        e.stopPropagation()
+
                                         tabStore.nextVid()
                                     }}>
                                         <img src="/img/back.svg" alt="" />
                                     </div>
                                 </div>
 
-                                <div className='Video_actions_inner_element Video_actions_inner_element_avatar' onClick={() => {
+                                <div className='Video_actions_inner_element Video_actions_inner_element_avatar' onClick={(e) => {
+                                    e.stopPropagation()
+
                                     tabStore.changeTab('Profile')
                                 }}>
                                     <img src="/img/avatar.png" alt="" />
                                 </div>
-                                <div className='Video_actions_inner_element' onClick={() => {
+                                <div className='Video_actions_inner_element' onClick={(e) => {
+                                    e.stopPropagation()
+
                                     localStorage.setItem(`liked${tabStore.vid}`, !liked ? 1 : 0)
                                     setliked(!liked)
                                 }}>
@@ -224,7 +241,9 @@ export default observer(() => {
                                         {likes}
                                     </div>
                                 </div>
-                                <div className='Video_actions_inner_element' onClick={() => {
+                                <div className='Video_actions_inner_element' onClick={(e) => {
+                                    e.stopPropagation()
+
                                     localStorage.setItem(`saved${tabStore.vid}`, !saved ? 1 : 0)
                                     setsaved(!saved)
                                 }}>
@@ -233,7 +252,8 @@ export default observer(() => {
                                         {comments}
                                     </div>
                                 </div>
-                                <div className='Video_actions_inner_element' onClick={() => {
+                                <div className='Video_actions_inner_element' onClick={(e) => {
+                                    e.stopPropagation()
                                     copyLink()
                                 }}>
                                     <img src="/img/share.svg" alt="" />
