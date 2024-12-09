@@ -140,7 +140,8 @@ export default observer(() => {
     return (
         <div className='Video_wrapper'>
 
-            <div className="Video">
+            <div className="Video" onTouchStart={handleTouchStart}
+                onTouchEnd={handleTouchEnd} onClick={togglePlayPause}>
                 <div className='free_img Video_status'>
                     <div className='Video_status_inner' style={{
                         transition: `opacity ${showPlayStatus ? 50 : 500}ms cubic-bezier(.52,.01,1,.51)`,
@@ -160,13 +161,18 @@ export default observer(() => {
                     </div>
                 </div>
                 <video
-                    onTouchStart={handleTouchStart}
-                    onTouchEnd={handleTouchEnd}
+
                     key={tabStore.vid}
                     ref={videoRef}
                     onTimeUpdate={updateProgress} // Обновление прогресса при воспроизведении
                     onLoadedMetadata={setMaxVolume}
-                    onClick={togglePlayPause} // Клик для Play/Pause
+
+                    playsInline
+                    muted
+                    autoPlay
+                    controls={false}
+                    loop
+                // Клик для Play/Pause
                 >
                     <source src={`/videos/${tabStore.vid}.mp4`} type="video/mp4" />
                 </video>
