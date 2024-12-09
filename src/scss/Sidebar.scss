@@ -1,0 +1,55 @@
+.Sidebar {
+    position: fixed;
+    left: 24px;
+    top: 0px;
+    z-index: 99;
+
+    @media(max-width: 799px) {
+        display: none;
+    }
+
+    &_logo {
+        padding: 24px 0px;
+    }
+
+    &_el {
+        display: flex;
+        align-items: center;
+        height: 44px;
+        column-gap: 8px;
+        opacity: .8;
+        cursor: pointer;
+        transition: opacity 200ms;
+
+        &:hover {
+            opacity: 1;
+
+        }
+
+        &_selected {
+            opacity: 1;
+        }
+
+        &_count {
+            width: 100%;
+            justify-content: right;
+
+            &_inner {
+                min-height: 16px;
+                min-width: 16px;
+                background: #FE2B54;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 16px;
+            }
+        }
+
+        &_img {
+            justify-content: center;
+            width: 36px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+    }
+}

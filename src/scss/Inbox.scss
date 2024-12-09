@@ -1,0 +1,139 @@
+.Inbox {
+    @media(min-width: 800px) {
+        display: flex;
+        column-gap: 32px;
+    }
+
+    &_list {
+        margin-top: 16px;
+        padding: 16px;
+        padding-bottom: 72px;
+        width: 100%;
+
+        &_header {
+
+            padding: 12px;
+            display: flex;
+            justify-content: left;
+            column-gap: 24px;
+            align-items: center;
+            font-size: 18px;
+            font-weight: 900;
+
+            @media(max-width: 800px) {
+                display: none;
+            }
+        }
+
+        @media(min-width: 800px) {
+            padding-top: 56px;
+            width: 50%;
+            display: block !important;
+            order: 1;
+            width: 35%;
+
+        }
+    }
+
+    &_chat {
+        @media(min-width: 800px) {
+            order: 2;
+            margin-top: 64px;
+            background: #212121;
+            border-radius: 42px;
+            width: 65%;
+        }
+
+        &_messages {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            padding: 16px;
+            padding-bottom: 72px;
+
+            @media(min-width: 800px) {
+                padding-bottom: 12px;
+            }
+
+        }
+
+        &_message {
+            display: flex;
+            column-gap: 16px;
+            width: 100%;
+
+            img {
+
+                width: 56px;
+                height: 56px;
+                object-fit: cover;
+                border-radius: 56px;
+            }
+
+            &_text {
+                border-radius: 12px;
+                // width: 100%;
+                padding: 12px;
+                background: #373736;
+            }
+
+            &_fromMe {
+                justify-content: right;
+
+                .Inbox_chat_message_text {
+                    background: #FE2B54;
+                    // width: ;
+                }
+            }
+
+        }
+    }
+
+    &_element {
+        display: flex;
+        align-items: center;
+        column-gap: 12px;
+        margin-top: 8px;
+
+        &_img {
+            img {
+                width: 56px;
+                height: 56px;
+                object-fit: cover;
+                border-radius: 56px;
+            }
+        }
+
+        &_text {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        &_viewed {
+            min-width: 8px;
+            min-height: 8px;
+            border-radius: 8px;
+            background: #FE2B54;
+        }
+
+        &_name {
+            font-size: 14px;
+            font-weight: 900;
+        }
+
+        &_message {
+            font-size: 12px;
+            margin-top: 4px;
+        }
+    }
+
+    &_chatShow {
+        display: none;
+    }
+
+    &_hide {
+        display: none;
+    }
+}
