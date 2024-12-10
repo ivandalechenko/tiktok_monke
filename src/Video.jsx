@@ -177,7 +177,7 @@ export default observer(() => {
                     onLoadedMetadata={setMaxVolume}
 
                     playsInline
-                    muted
+                    // muted
                     autoPlay
                     controls={false}
                     loop
